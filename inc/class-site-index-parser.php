@@ -21,7 +21,7 @@ class SiteIndexParser {
 
   public $error = 0;
 
-  public $metatags =array('title','og:title','description','og:description', 'og:image');
+  public $metatags =array('og:title','description','og:description', 'og:image');
 
   public function __construct() {}
 
@@ -34,7 +34,7 @@ class SiteIndexParser {
     $this->doing("fetching sitemap $url");
     $source = file_get_contents($url);
     $results = array();
-    if($file && $this->error==0){
+    if($source && $this->error==0){
       $this->doing("extracting sitemap");
       $xml = simplexml_load_string($source);
        // print_r($xml->children());
